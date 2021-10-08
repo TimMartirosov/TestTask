@@ -1,42 +1,28 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_aplication/screens/home.dart';
+import 'package:test_aplication/generated/l10n.dart';
 
-class contactSrceen extends StatelessWidget {
+class ContactSrceen extends StatelessWidget {
+  const ContactSrceen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        backgroundColor: Colors.transparent,
+    return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(50, 65, 85, 1),
           title: Text(
-            'Contacts',
-            style: TextStyle(fontSize: 28, fontFamily: 'Akronim-Regular'),
+            S.of(context).app_bar_contacts_title,
           ),
-          actions: <Widget>[
-            FlatButton.icon(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => TestApp()));
-                },
-                icon: Icon(
-                  Icons.android_sharp,
-                  color: Colors.white,
-                ),
-                label: SizedBox.shrink())
-          ],
         ),
         body: Column(
           children: <Widget>[
             Align(
               alignment: Alignment.topCenter,
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
                 width: 275.0,
                 height: 275.0,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
@@ -47,34 +33,25 @@ class contactSrceen extends StatelessWidget {
                     )
                   ], //boxShadow
                   image: DecorationImage(
-                      image: AssetImage("images/background.jpg"),
+                      image: AssetImage("assets/images/background.jpg"),
                       fit: BoxFit.fill),
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              'E-MAIL - Fredi.xichkok@gmail.com',
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 26,
-                  fontFamily: 'Akronim-Regular'),
+              S.of(context).contact_email,
+              style: Theme.of(context).textTheme.headline2,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              'Telegram - Tim_Art_V',
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 26,
-                  fontFamily: 'Akronim-Regular'),
+              S.of(context).contact_telegram,
+              style: Theme.of(context).textTheme.headline2,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              'GitHub - https://github.com/TimMartirosov',
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 26,
-                  fontFamily: 'Akronim-Regular'),
+              S.of(context).contact_github,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ],
         ));

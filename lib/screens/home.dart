@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:test_aplication/generated/l10n.dart';
 import 'dart:math';
 import 'package:test_aplication/screens/contact.dart';
 
@@ -30,16 +31,14 @@ class _TestAppState extends State<TestApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(50, 65, 85, 1),
         title: Text(
-          'TestTask by Tim',
-          style: TextStyle(fontSize: 28, fontFamily: 'Akronim-Regular'),
+          S.of(context).app_bar_title,
         ),
         actions: <Widget>[
           FlatButton.icon(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => contactSrceen()));
+                    MaterialPageRoute(builder: (context) => ContactSrceen()));
               },
               icon: Icon(
                 Icons.assignment_ind,
@@ -54,11 +53,8 @@ class _TestAppState extends State<TestApp> {
           color: _color,
           child: Center(
             child: Text(
-              "Hey there",
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 46,
-                  fontFamily: 'Akronim-Regular'),
+              S.of(context).rgb_page_title,
+              style: Theme.of(context).textTheme.headline1,
             ),
           ),
         ),
